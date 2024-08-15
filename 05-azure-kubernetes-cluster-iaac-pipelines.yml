@@ -1,0 +1,38 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo K8S Terraform Azure!
+
+- task: TerraformCLI@2
+  displayName: 'Terraform Init'
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$()'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-mananger-service-connection'
+    backendAzureRmTenantId: 'bff07bc0-bc49-46ca-9f9f-6ce7c451f2a7'
+    backendAzureRmSubscriptionId: 'b912bb86-991f-4126-bc59-13e12c263d17'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'terraform-backend-rg'
+    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmStorageAccountName: 'storageaccounttsivanesan'
+    backendAzureRmContainerName: 'storageaccounttsivanesancontainer'
+    backendAzureRmKey: 'kubernetes-dev.tfstate'
+    allowTelemetryCollection: true
+
+ 

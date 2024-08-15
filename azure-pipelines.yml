@@ -19,8 +19,8 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'thenushansivanesan-docker-hub'
-        repository: 'thenushansivanesan/currency-exchange-devops'
+        containerRegistry: 'thenushan-docker-hub'
+        repository: 'thenushan/currency-exchange-devops'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'

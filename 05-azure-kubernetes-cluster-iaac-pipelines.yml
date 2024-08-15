@@ -19,7 +19,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
-    backendServiceArm: 'azure-resource-mananger-service-connection'
+    backendServiceArm: 'azure-resource-manager-service-connection'
     backendAzureRmTenantId: 'bff07bc0-bc49-46ca-9f9f-6ce7c451f2a7'
     backendAzureRmSubscriptionId: 'b912bb86-991f-4126-bc59-13e12c263d17'
     ensureBackend: true
